@@ -90,7 +90,7 @@ class ImpersonateServiceProvider extends \Illuminate\Support\ServiceProvider
 
             $bladeCompiler->directive('canBeImpersonated', function ($expression) {
                 $args = preg_split("/,(\s+)?/", $expression);
-                $guard = $args[1] ?? null;
+                $guard = $args[1] ?? "null";
 
                 return "<?php if (can_be_impersonated({$args[0]}, {$guard})) : ?>";
             });
